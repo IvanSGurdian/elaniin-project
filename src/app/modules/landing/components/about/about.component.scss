@@ -1,0 +1,29 @@
+:host {
+
+    .row .col-12:first-child {
+        background:
+            linear-gradient(to top,#000000a6, #00000000), 
+            no-repeat center / cover url(/assets/img/about.jpg);
+        height: 70vh;
+    }
+
+    .row .col-12:last-child {
+        background:
+            no-repeat center / contain url(/assets/img/svg/Vector3.svg);
+    }
+
+    .heading-about-main {
+        text-align: right;
+        bottom: 60px;
+        right: 40px;
+        position: absolute;
+        color: #FFF;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 50px;
+
+        span {
+            color: var(--yellow);
+        }
+    }
+}

@@ -1,0 +1,24 @@
+:host {
+   .eln-hero {
+       padding-top: 50px;
+        height: 95vh;
+        background: 
+        // no-repeat 85% 45% / 30%  url(/assets/img/hero_hamburger.png),
+        no-repeat top right / contain url(/assets/img/svg/Subtract.svg);
+   }
+
+   .text-box {
+        top: 40%;
+        left: 0;
+        height: 100%;
+        // transform: translate(-50%, -50%);
+    }
+
+    .heading-main {
+        font-size: 60px;
+    }
+
+    .heading-sub {
+        color: var(--text-main);
+    }
+}
