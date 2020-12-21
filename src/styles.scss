@@ -21,3 +21,54 @@ $grid-breakpoints: (
 );
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+@font-face {
+  font-family: Druk;
+  src: url(assets/fonts/Druk/DrukTextWide-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Syne;
+  src: url(assets/fonts/Syne/Syne-Regular.ttf) format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Syne;
+  src: url(assets/fonts/Syne/Syne-Bold.ttf) format("truetype");
+  font-weight: bold;
+}
+
+
+.heading-main {
+  font-family: 'Druk';
+}
+
+.text--fading .char {
+  display: inline-block;
+  -webkit-animation-delay: calc(0.25s + var(--char-index) * 0.1s);
+          animation-delay: calc(0.25s + var(--char-index) * 0.1s);
+  transition: all 0.25s calc(0.25s + var(--char-index) * 0.1s);
+  }
+
+.text--fading [data-scroll="in"] .char{
+  opacity: 1;
+}
+
+.text--fading [data-scroll="out"] .char{
+  opacity: 0;
+}
+
+.eln-main-link {
+  color: #000;
+  text-decoration: none;
+  font-family: 'Syne';
+  font-weight: bold;
+  font-size: 22px;
+
+  &::after {
+    content: '\2794';
+    display: inline-block;
+    margin-left: 15px;
+  }
+}

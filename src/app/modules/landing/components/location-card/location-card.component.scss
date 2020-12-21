@@ -1,0 +1,14 @@
+:host {
+    .location-card {
+        padding: 15px 20px;
+        border: 1px solid #000000;
+        border-radius: 4px;
+        margin: 10px 0;
+
+        &:hover{
+            background-color: #FFF1BF;
+            border-color: transparent;
+            cursor: pointer;
+        }
+    }
+}
