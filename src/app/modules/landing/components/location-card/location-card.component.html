@@ -1,5 +1,7 @@
-<div class="location-card">
+<div class="location-card" (click)="selectLocation(location)">
     <h3 class="location-name">{{ location.name }}</h3>
-    <p class="m-0">Abierto de <time>{{openingTime | date:'h:mm'}}</time> - <time>{{ closingTime | date:'h:mm'}}</time></p>
-    <address class="mb-0">{{ location.address }}</address>
+    <div class="location-details">
+        <p class="m-0">Abierto de <time>{{openingTime | date:'h:mm'}}</time> - <time>{{ closingTime | date:'h:mm'}}</time></p>
+        <address class="mb-0">{{ location.address }}</address>
+    </div>
 </div>

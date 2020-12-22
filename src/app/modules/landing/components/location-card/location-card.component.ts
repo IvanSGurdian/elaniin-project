@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Location } from 'src/app/core/models/location.model';
 
 @Component({
@@ -9,6 +9,7 @@ import { Location } from 'src/app/core/models/location.model';
 export class LocationCardComponent implements OnInit {
 
   @Input() location: Location;
+  @Output() selectedLocation = new EventEmitter<Location>();
   openingTime = new Date();
   closingTime = new Date();
 
@@ -34,4 +35,7 @@ export class LocationCardComponent implements OnInit {
     return [hours, minutes, seconds];
   }
 
+  selectLocation(location): void {
+    this.selectedLocation.emit(location);
+  }
 }

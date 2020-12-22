@@ -1,0 +1,34 @@
+<section id="contact">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <header class="mb-5">
+                    <h2 class="text--fading text-center heading-main" data-scroll="out" data-splitting="">Cuentanos tu experiencia</h2>
+                    <p class="text-center">Don't miss out on our great offers & Receive deals from all our top restaurants via e-mail.</p>
+                </header>
+
+            
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                    <div class="form-grid">
+                        <div class="grid-item">
+                            <label for="name">Nombre y Apellido</label>
+                            <input type="text" formControlName="name" placeholder="John Doe" class="w-100" id="name">
+                        </div>
+                        <div class="grid-item">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" formControlName="email" placeholder="j.doe@correo.com" class="w-100" id="email">
+                        </div>
+                        <div class="grid-item d-flex flex-column">
+                            <label for="message">Mensaje</label>
+                            <textarea name="" id="message" formControlName="message" class="w-100 flex-grow-1" placeholder="El día de ahora mi experiencia fue..."></textarea>
+                        </div>
+                    </div>
+                    <div class="d-flex mt-3">
+                        <button class="submit-btn ms-auto">Enviar comentarios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

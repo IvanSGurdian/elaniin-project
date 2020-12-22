@@ -17,9 +17,9 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
     window.onscroll = () => {
       if (window.scrollY > 100) {
-        navbar.classList.add('bg-dark', 'navbar-dark');
+        navbar.classList.add('scrolled', 'navbar-dark');
       } else {
-        navbar.classList.remove('bg-dark', 'navbar-dark');
+        navbar.classList.remove('scrolled', 'navbar-dark');
       }
     };
   }

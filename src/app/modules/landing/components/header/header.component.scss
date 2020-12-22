@@ -16,6 +16,18 @@
 
     .heading-main {
         font-size: 60px;
+        position: relative;
+        &::after {
+            content: '';
+            display: inline-block;
+            height: 50px;
+            width: 60%;
+            left: 0;
+            position: absolute;
+            bottom: 0;
+            z-index: -1;
+            background-color: var(--yellow);
+        }
     }
 
     .heading-sub {

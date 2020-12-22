@@ -1,0 +1,75 @@
+:host {
+    
+    #contact {
+        background-color: #000;
+        padding: 100px;
+    }
+
+    header {
+        color: #FFF;
+
+        p {
+            font-family: 'Open Sans';
+            font-size: 24px;
+        }
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-areas: 
+            'name message message message'
+            'email message message message';
+        gap: 15px 50px;
+
+        label {
+            color: #FFF;
+            font-size: 14px;
+        }
+
+        input, textarea {
+            background-color: #000;
+            color: #FFF;
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #FFF;
+        }
+
+        input:focus {
+            outline: none;
+            color: var(--yellow);
+            border: 1px solid var(--yellow);
+        }
+
+        textarea:focus {
+            outline: none;
+            color: var(--yellow);
+            border: 1px solid var(--yellow);
+        }
+    }
+
+    .grid-item:focus-within label{
+        color: var(--yellow);
+    }
+
+    .grid-item:nth-child(1) {
+        grid-area: name;
+    }
+
+    .grid-item:nth-child(2) {
+        grid-area: email;
+    }
+
+    .grid-item:nth-child(3) {
+        grid-area: message;
+    }
+
+    .submit-btn {
+        background-color: var(--yellow);
+        color: #000;
+        padding: 10px;
+        border: 1px solid var(--yellow);
+        border-radius: 4px;
+        font-family: 'Open Sans';
+        font-weight: bold;
+    }
+}

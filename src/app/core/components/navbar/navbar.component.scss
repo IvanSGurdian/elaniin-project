@@ -1,4 +1,12 @@
 :host {
+    .navbar.scrolled {
+        background-color: #000;
+        
+        .nav-link {
+            color: #FFF;
+        }
+    }
+
     .navbar-brand {
         font-family: 'Druk';
     }
@@ -6,5 +14,23 @@
     .nav-link {
         font-family: 'Syne';
         color: #000;
+        position: relative;
+    }
+
+    .nav-link:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--yellow);
+        content: "";
+        transform: scale(0);
+        transition: transform .3s cubic-bezier(0.11, 0.7, 0, 1);
+    }
+      
+    .nav-link:hover:after {
+        transform: scale(1);
     }
 }

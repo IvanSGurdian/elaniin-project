@@ -22,6 +22,10 @@ export class LocationsComponent implements OnInit, AfterContentInit, OnDestroy {
   locations: Location[] = [];
   type = new FormControl('takeaway');
   query = new FormControl('');
+  options: google.maps.MapOptions = {
+    center: {lat: 40, lng: -20}
+  };
+  markerPosition: google.maps.LatLngLiteral;
 
   ngOnInit(): void {
     this.sub = merge(this.type.valueChanges, this.query.valueChanges).pipe(
@@ -59,5 +63,14 @@ export class LocationsComponent implements OnInit, AfterContentInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub.unsubscribe();
     this.so.teardown();
+  }
+
+  onLocationSelected(location: Location): void {
+    console.log(location);
+    this.options = {
+      center: {lat: parseFloat(location.latitude), lng: parseFloat(location.longitude)}
+    };
+
+    this.markerPosition = {lat: parseFloat(location.latitude), lng: parseFloat(location.longitude)};
   }
 }
