@@ -39,7 +39,7 @@
                         <app-product-card [product]="item"></app-product-card>
                     </div>
                 </div>
-                <nav class="mt-5" aria-label="Page navigation example">
+                <nav *ngIf="menu.meta.total > menu.meta.per_page" class="mt-5" aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                       <li [class.disabled]="!menu.links.prev" class="page-item"><button class="page-link" (click)="page.setValue(menu.links.prev.charAt(menu.links.prev.length - 1))">Previous</button></li>
                       <li class="page-item"><button class="page-link" (click)="page.setValue(1)">1</button></li>
