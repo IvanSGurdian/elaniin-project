@@ -1,42 +1,52 @@
-.custom-btn-group {
-    display: flex;
-
-    .opt-button {
-        flex: 1 0 auto;
-        background-color: #FFF;
-        color: #000;
-        box-shadow: none;
-        border: 1px solid  #C4C4C4;
-        font-family: 'Syne';
-        font-size: 25px;
-        font-weight: bold;
-        padding: 10px 0;
-
-        svg path{
-            fill: #000;
-        }
-
-        &.active {
-            background-color: #000;
-            color: #FFF;
-            border-color: #000;
-
+:host {
+    .custom-btn-group {
+        display: flex;
+    
+        .opt-button {
+            flex: 1 0 auto;
+            background-color: #FFF;
+            color: #000;
+            box-shadow: none;
+            border: 1px solid  #C4C4C4;
+            font-family: 'Syne';
+            font-size: 25px;
+            font-weight: bold;
+            padding: 10px 0;
+    
             svg path{
-                fill: #FFF;
+                fill: #000;
+            }
+    
+            &.active {
+                background-color: #000;
+                color: #FFF;
+                border-color: #000;
+    
+                svg path{
+                    fill: #FFF;
+                }
             }
         }
     }
-}
-
-.input-container {
-    border: 1px solid  #C4C4C4;
-
-    .search-input {
-        outline: none;
-        padding: 5px 50px;
-        font-size: 18px;
-        font-family: 'Open Sans';
+    
+    .input-container {
+        border: 1px solid  #C4C4C4;
+    
+        .search-input {
+            outline: none;
+            padding: 5px 50px;
+            font-size: 18px;
+            font-family: 'Open Sans';
+        }
+    }
+    
+    @media screen and (max-width: 600px) {
+        .custom-btn-group {
+        
+            .opt-button {
+                font-size: 1rem;
+            }
+        }
+        
     }
 }
-
-

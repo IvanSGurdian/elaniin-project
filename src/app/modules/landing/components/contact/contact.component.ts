@@ -1,7 +1,9 @@
 import { AfterContentInit, Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import ScrollOut from 'scroll-out';
 import Splitting from 'splitting';
+import { ApiService } from 'src/app/core/http/api.service';
+import { Contact } from 'src/app/core/models/contact.model';
 
 
 @Component({
@@ -13,13 +15,15 @@ export class ContactComponent implements OnInit, AfterContentInit, OnDestroy {
 
   contactForm: FormGroup;
   so: any;
-  constructor(private el: ElementRef) { }
+  messageSent = false;
+
+  constructor(private el: ElementRef, private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.contactForm = new FormGroup({
-      name: new FormControl(''),
-      email: new FormControl(''),
-      message: new FormControl('')
+      name: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      message: new FormControl('', Validators.required)
     });
   }
 
@@ -36,7 +40,13 @@ export class ContactComponent implements OnInit, AfterContentInit, OnDestroy {
   }
 
   onSubmit(): void {
-    console.log(this.contactForm.value);
+    this.apiService.sendContact(this.contactForm.value).subscribe( res => {
+      console.log(res);
+    }, error => {
+      console.log(error.error);
+    }, () => {
+      this.messageSent = true;
+    });
   }
 
 }

@@ -1,0 +1,64 @@
+:host {
+    .search-input{
+        position: relative;
+
+        .bi {
+            position: absolute;
+            left: 20px;
+            top: 6px;
+        }
+
+        input {
+            background: #F8F8F8;
+            border: 1px solid #C4C4C4;
+            padding: 8px 30px;
+            border-radius: 8px;
+            outline: none;
+        }
+    }
+
+    .filter-controls {
+        .btn {
+            font-family: 'Syne';
+            font-weight: bold;
+            font-size: 18px;
+            position: relative;
+            box-shadow: none;
+        }
+
+        .btn-check:checked + .btn::after {
+            content: '';
+            display: inline-block;
+            height: 6px;
+            width: 100%;
+            left: 0;
+            top: 17px;
+            position: absolute;
+            z-index: -1;
+            background-color: var(--yellow);
+        }
+
+        .filter-btn {
+            background: no-repeat url(/assets/img/svg/sliders.svg);
+            background-position: center;
+            height: 100%;
+            width: 100%;
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    .not-found-message {
+        span {
+            font-family: 'Syne';
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        p {
+            font-family: 'Open Sans';
+        }
+    }
+}

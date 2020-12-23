@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,18 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  menuBar: boolean;
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
+      if (event.url === '/menu') {
+        this.menuBar = true;
+      } else {
+        this.menuBar = false;
+      }
+    });
   }
 
   ngAfterViewInit(): void {

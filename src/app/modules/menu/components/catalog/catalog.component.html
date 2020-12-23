@@ -1,0 +1,50 @@
+<section id="menu" class="my-5">
+    <div class="container">
+        <div class="row mb-5 align-items-stretch align-items-md-center justify-content-center">
+            <div class="search-input col-10 col-md-10 col-lg-4">
+                <i class="bi bi-search"></i>
+                <input [formControl]="filter" class="w-100" placeholder="Busca tu platillo favorito..." type="text">
+            </div>
+            <div class="col-2 col-md-auto col-lg mt-md-4 mt-lg-0 filter-controls">
+                <div class="btn-group d-none d-md-block" role="group" aria-label="Basic radio toggle button group">
+                    <input [formControl]="category" type="radio" class="btn-check" value="" name="todas" id="todas" autocomplete="off" [checked]="!category.value">
+                    <label class="btn" for="todas">Todas</label>
+                    <ng-container *ngIf="(categories$ | async) as categories">
+                        <ng-container *ngFor="let item of categories.data">
+                            <input type="radio" [checked]="category.value === item.id" [formControl]="category" class="btn-check" [value]="item.id" [name]="item.name" [id]="item.id" autocomplete="off" checked>
+                            <label class="btn" [for]="item.id">{{ item.name }}</label>
+                        </ng-container>
+                    </ng-container>
+                </div>
+                <div class="dropdown d-block d-md-none h-100">
+                    <button class="filter-btn btn btn-secondary dropdown-toggle  border-0" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <li><h6 class="dropdown-header">Dropdown header</h6></li>
+                      <li><button class="dropdown-item" type="button">Action</button></li>
+                      <li><button class="dropdown-item" type="button">Another action</button></li>
+                      <li><button class="dropdown-item" type="button">Something else here</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-container" *ngIf="(menu$ | async) as menu">
+            <div *ngIf="menu.data.length > 0" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 gx-4 gy-6" >
+                <div class="col" *ngFor="let item of menu.data">
+                    <app-product-card [product]="item"></app-product-card>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="not-found-message text-center mt-5" *ngIf="menu.data.length === 0 && !firstLoad">
+                        <img src="/assets/img/svg/product-not-found.svg" width="300" class="img-fluid mx-auto d-block mb-4" alt="Producto no encontrado">
+                        <span>¡Platillo no encontrado!</span>
+                        <p class="mt-3">Te invitamos a que verifiques si el nombre esta bien escrito o prueba buscando un nuevo platillo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -2,7 +2,7 @@
     
     #contact {
         background-color: #000;
-        padding: 100px;
+        padding: 100px 0;
     }
 
     header {
@@ -15,11 +15,10 @@
     }
 
     .form-grid {
-        display: grid;
-        grid-template-areas: 
-            'name message message message'
-            'email message message message';
-        gap: 15px 50px;
+
+        .form-group:focus-within label{
+            color: var(--yellow);
+        }
 
         label {
             color: #FFF;
@@ -50,19 +49,6 @@
     .grid-item:focus-within label{
         color: var(--yellow);
     }
-
-    .grid-item:nth-child(1) {
-        grid-area: name;
-    }
-
-    .grid-item:nth-child(2) {
-        grid-area: email;
-    }
-
-    .grid-item:nth-child(3) {
-        grid-area: message;
-    }
-
     .submit-btn {
         background-color: var(--yellow);
         color: #000;
@@ -71,5 +57,17 @@
         border-radius: 4px;
         font-family: 'Open Sans';
         font-weight: bold;
+        transition: all 0.2s;
+
+        &:disabled {
+            background-color: rgb(169, 169, 169);
+            border-color: rgb(169, 169, 169);
+            color: #FFF;
+            cursor: not-allowed;
+        }
+    }
+
+    .confirm-message {
+        color: #FFF;
     }
 }

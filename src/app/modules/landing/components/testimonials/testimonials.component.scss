@@ -1,12 +1,37 @@
-.img-left {
-    position: absolute;
-    right: 0;
-    top: 50px;
-    transform: scale(-1);
-}
+:host {
+    #testimonials {
+        height: 70vh;
+        margin-top: 50px;
+    }
 
-.img-ketchup {
-    position: absolute;
-    right: 0;
-    width: 400px;
+    .img-left {
+        position: absolute;
+        right: 0;
+        top: 50px;
+        transform: scale(-1);
+    }
+    
+    .img-right {
+        position: absolute;
+        top: 0;
+    }
+    
+    .img-ketchup {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 400px;
+    }
+
+    .carousel-indicators li {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+
+    @media screen and (max-width: 768px) {
+        .img-left, .img-right {
+            width: 20%;
+        }
+    }
 }

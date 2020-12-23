@@ -1,0 +1,11 @@
+<div class="card border-0 h-100">
+    <img [src]="product.image" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+    </div>
+    <div class="card-footer bg-transparent border-0 d-flex align-items-center justify-content-between">
+      <small class="text-muted">{{ product.category }}</small>
+      <div class="price-tag">{{ product.price }}</div>
+    </div>
+</div>
