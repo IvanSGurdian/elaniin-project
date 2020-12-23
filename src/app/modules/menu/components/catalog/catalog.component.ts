@@ -20,16 +20,17 @@ export class CatalogComponent implements OnInit {
   filter = new FormControl('');
   category = new FormControl('');
   firstLoad = true;
+  page = new FormControl();
 
   ngOnInit(): void {
-    this.menu$ = merge(this.filter.valueChanges, this.category.valueChanges).pipe(
+    this.menu$ = merge(this.filter.valueChanges, this.category.valueChanges, this.page.valueChanges).pipe(
       startWith({}),
       debounceTime(500),
       distinctUntilChanged(),
       switchMap(
         evt => {
           this.firstLoad = false;
-          return this.apiService.getMenu(this.category.value, this.filter.value);
+          return this.apiService.getMenu(this.category.value, this.filter.value, this.page.value);
       })
     );
   }

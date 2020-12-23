@@ -61,4 +61,39 @@
             font-family: 'Open Sans';
         }
     }
+
+    .pagination {
+
+        .page-item {
+            font-family: 'Open Sans';
+            margin: 0 5px;
+            font-size: 1.25rem;
+            
+            .page-link {
+                border-radius: 4px;
+                color: #000;
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+
+            &.disabled {
+                display: none;
+            }
+        }
+        
+        .page-item:first-child button,
+        .page-item:last-child button {
+            background-color: #FFF1BF;
+            color: #000;
+            border-color: transparent;
+
+            &:hover {
+                background-color: var(--yellow);
+            }
+        }
+
+
+    }
 }

@@ -30,11 +30,21 @@
         </div>
 
         <div class="menu-container" *ngIf="(menu$ | async) as menu">
-            <div *ngIf="menu.data.length > 0" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 gx-4 gy-6" >
-                <div class="col" *ngFor="let item of menu.data">
-                    <app-product-card [product]="item"></app-product-card>
+            <ng-container *ngIf="menu.data.length > 0">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 gx-4 gy-6" >
+                    <div class="col" *ngFor="let item of menu.data">
+                        <app-product-card [product]="item"></app-product-card>
+                    </div>
                 </div>
-            </div>
+                <nav class="mt-5" aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                      <li [class.disabled]="!menu.links.prev" class="page-item"><button class="page-link" (click)="page.setValue(menu.links.prev.charAt(menu.links.prev.length - 1))">Previous</button></li>
+                      <li class="page-item"><button class="page-link" (click)="page.setValue(1)">1</button></li>
+                      <li class="page-item"><button class="page-link" (click)="page.setValue(2)">2</button></li>
+                      <li [class.disabled]="!menu.links.next" class="page-item"><button class="page-link" (click)="page.setValue(menu.links.next.charAt(menu.links.next.length - 1))">Next</button></li>
+                    </ul>
+                </nav>
+            </ng-container>
 
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6">

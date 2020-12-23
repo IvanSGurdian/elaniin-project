@@ -30,7 +30,7 @@ export class ApiService {
     return this.http.get<CategoryData>(`${this.apiUrl}/categories`);
   }
 
-  getMenu(category?: string, query?: string): Observable<Menu> {
+  getMenu(category?: string, query?: string, page?: number): Observable<Menu> {
     let httpParams = new HttpParams();
 
     if (category) {
@@ -39,6 +39,10 @@ export class ApiService {
 
     if (query) {
       httpParams = httpParams.append('query', query);
+    }
+
+    if (page) {
+      httpParams = httpParams.append('page', page.toString());
     }
 
     return this.http.get<Menu>(`${this.apiUrl}/menu`, { params: httpParams });
