@@ -20,10 +20,13 @@
                     <button class="filter-btn btn btn-secondary dropdown-toggle  border-0" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                      <li><h6 class="dropdown-header">Dropdown header</h6></li>
-                      <li><button class="dropdown-item" type="button">Action</button></li>
-                      <li><button class="dropdown-item" type="button">Another action</button></li>
-                      <li><button class="dropdown-item" type="button">Something else here</button></li>
+                      <li><h6 class="dropdown-header">Filtros</h6></li>
+                      <li><button class="dropdown-item" type="button">Todas</button></li>
+                      <ng-container *ngIf="(categories$ | async) as categories">
+                        <ng-container *ngFor="let item of categories.data">
+                            <li><button (click)="category.setValue(item.id)" class="dropdown-item" type="button">{{item.name}}</button></li>
+                        </ng-container>
+                      </ng-container>
                     </ul>
                 </div>
             </div>

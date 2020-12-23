@@ -48,6 +48,39 @@
                 display: none;
             }
         }
+
+        .dropdown-menu {
+            background-color: #000;
+
+            .dropdown-header {
+                font-family: 'Druk';
+                font-weight: bold;
+                color: var(--yellow);
+                font-size: 1.30rem;
+            }
+            
+            .dropdown-item {
+                color: #FFF;
+                position: relative;
+                font-family: 'Syne';
+                font-size: 1.25rem;
+            }
+
+            .dropdown-item:hover{
+                background: none;
+                &::after {
+                    content: '';
+                    display: inline-block;
+                    height: 6px;
+                    width: 80%;
+                    left: 13px;
+                    top: 25px;
+                    position: absolute;
+                    z-index: -1;
+                    background-color: var(--yellow);
+                }
+            }
+        }
     }
 
     .not-found-message {
